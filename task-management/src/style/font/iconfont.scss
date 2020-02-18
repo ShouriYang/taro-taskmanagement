@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'task';  /* project id 1639674 */
+  src: url('//at.alicdn.com/t/font_1639674_5rc3743ag4.eot');
+  src: url('//at.alicdn.com/t/font_1639674_5rc3743ag4.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1639674_5rc3743ag4.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1639674_5rc3743ag4.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1639674_5rc3743ag4.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1639674_5rc3743ag4.svg#task') format('svg');
+}
+
+.task {
+  display: inline-block;
+  /* 以下的 font 与上面 @font-face 的 font-family 要一致*/
+  font: normal normal normal 14px/1 task;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.task-advertising:before {
+  content: "\e6a9";
+}
+
+.task-home:before {
+  content: "\e6f0";
+}
+
+.task-parallel_tasks:before {
+  content: "\e710";
+}
+
+.task-portrait_mode:before {
+  content: "\e716";
+}
+
+.task-star-o:before {
+  content: "\e601";
+}
+
+.task-star:before {
+  content: "\e602";
+}
+

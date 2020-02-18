@@ -1,0 +1,35 @@
+@import '../../style/main.scss';
+
+.TaskItem {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 10px $color-shadow;
+    .task-title {
+        font-size: 48px;
+        color: $color-brand-color;
+    }
+    .task-detail {
+        font-size: 28px;
+        color: $color-text-description;
+        margin: 20px 0;
+        padding: 0 20px;
+    }
+    .task-description {
+        font-size: 28px;
+        @include mul-text-truncate(3);
+        margin: 10px;
+    }
+
+    .task-footer {
+        padding: 20px 20px 0 20px;
+        border-top: solid 1px $color-line;
+        display: flex;
+        .task-date {
+            flex: 1;
+        }
+        .task-score {
+            color: $color-text-activity;
+        }
+    }
+}

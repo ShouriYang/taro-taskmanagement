@@ -1,0 +1,51 @@
+{
+  "id": "1639674",
+  "name": "shouri-task",
+  "font_family": "task",
+  "css_prefix_text": "task-",
+  "description": "任务领取",
+  "glyphs": [
+    {
+      "icon_id": "6145750",
+      "name": "advertising",
+      "font_class": "advertising",
+      "unicode": "e6a9",
+      "unicode_decimal": 59049
+    },
+    {
+      "icon_id": "6145892",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e6f0",
+      "unicode_decimal": 59120
+    },
+    {
+      "icon_id": "6145959",
+      "name": "parallel_tasks",
+      "font_class": "parallel_tasks",
+      "unicode": "e710",
+      "unicode_decimal": 59152
+    },
+    {
+      "icon_id": "6145973",
+      "name": "portrait_mode",
+      "font_class": "portrait_mode",
+      "unicode": "e716",
+      "unicode_decimal": 59158
+    },
+    {
+      "icon_id": "13034497",
+      "name": "task-star-o",
+      "font_class": "star-o",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "13034498",
+      "name": "task-star",
+      "font_class": "star",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    }
+  ]
+}
