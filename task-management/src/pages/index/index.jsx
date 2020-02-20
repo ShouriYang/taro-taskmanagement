@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
+import { AtPagination } from 'taro-ui'
 
 import PostItem from '../../components/postItem/postItem'
 import './index.scss'
@@ -14,8 +15,10 @@ class Index extends Component {
   state = {
 
   }
-
   componentDidMount() {
+    Taro.switchTab({
+      url:'/pages/task/task'
+    })
     const { postStore } = this.props
     postStore.getPosts();
   }
@@ -50,6 +53,14 @@ class Index extends Component {
             </PostItem>
           )
         }
+        <AtPagination
+          className='index-pagi'
+          icon
+          total={50}
+          pageSize={10}
+          current={1}
+        >
+        </AtPagination>
       </View>
     )
   }

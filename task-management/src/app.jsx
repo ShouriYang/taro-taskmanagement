@@ -34,6 +34,7 @@ class App extends Component {
       'pages/index/index',
       'pages/personal/personal',
       'pages/task/task',
+      'pages/manage/manage',
       'pages/message/message'
     ],
     window: {
@@ -52,9 +53,15 @@ class App extends Component {
       },
       {
         pagePath:'pages/task/task',
-        text:'任务',
+        text:'广场',
         iconPath:'assets/images/task.png',
         selectedIconPath:'assets/images/task.png'
+      },
+      {
+        pagePath:'pages/manage/manage',
+        text:'管理',
+        iconPath:'assets/images/manage.png',
+        selectedIconPath:'assets/images/manage.png'
       },
       {
         pagePath:'pages/message/message',

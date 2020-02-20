@@ -4,8 +4,9 @@ import Taro from '@tarojs/taro'
 const interceptor =  chain => {
     const requestParams = chain.requestParams
     const { method, data, url } = requestParams
-    //扩充请求参数:添加token
-    requestParams.header = {...requestParams,token:'121465646'}
+    //扩充请求参数:添加token为openid
+    const token = Taro.getStorageSync('openid');
+    requestParams.header = {...requestParams,token}
     console.log(`http ${method || 'GET'} --> ${url} data: `, data)
   
     return chain.proceed(requestParams)
@@ -30,10 +31,17 @@ export default {
       }
     })
   },
+  //option里面主要包含url和data
   get(option) {
     return this.request(option, 'GET')
   },
-  post() {
-    
+  post(option) {
+    return this.request(option, 'POST')
+  },
+  put(option){
+    return this.request(option, 'PUT')
+  },
+  delete(option) {
+    return this.request(option, 'DELETE')
   }
 }
