@@ -16,9 +16,9 @@ class Index extends Component {
 
   }
   componentDidMount() {
-    Taro.switchTab({
-      url:'/pages/task/task'
-    })
+    // Taro.switchTab({
+    //   url:'/pages/task/task'
+    // })
     const { postStore } = this.props
     postStore.getPosts();
   }

@@ -2,5 +2,10 @@
 
 .task{
   .task-header{
+    .header-button{
+      border-radius: 5px;
+      background-color: $color-brand-color;
+      font-size: 16px;
+    }
   }
 }
