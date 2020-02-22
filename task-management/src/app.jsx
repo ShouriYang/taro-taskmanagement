@@ -35,7 +35,7 @@ class App extends Component {
       'pages/personal/personal',
       'pages/task/task',
       'pages/manage/manage',
-      'pages/message/message'
+      'pages/message/message',
     ],
     window: {
       backgroundTextStyle: 'light',

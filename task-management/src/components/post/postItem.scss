@@ -1,34 +1,34 @@
 @import '../../style/main.scss';
 
-.TaskItem {
+.PostItem {
     padding: 20px;
     margin: 20px;
     border-radius: 16px;
     box-shadow: 0 10px 10px $color-shadow;
-    .task-title {
+    .post-title {
         font-size: 48px;
-        color: $color-brand-color;
+        color: $color-brand;
     }
-    .task-detail {
+    .post-detail {
         font-size: 28px;
         color: $color-text-description;
         margin: 20px 0;
         padding: 0 20px;
     }
-    .task-description {
+    .post-description {
         font-size: 28px;
         @include mul-text-truncate(3);
         margin: 10px;
     }
 
-    .task-footer {
+    .post-footer {
         padding: 20px 20px 0 20px;
         border-top: solid 1px $color-line;
         display: flex;
-        .task-date {
+        .post-date {
             flex: 1;
         }
-        .task-score {
+        .post-score {
             color: $color-text-activity;
         }
     }

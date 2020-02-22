@@ -1,0 +1,17 @@
+@import '../../style/main.scss';
+
+.layout{
+  .layout-header{
+    display: flex;
+    padding: 25px;
+    .layout-text{
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  }
+  .layout-timeline{
+    margin-left: 20px;
+  }
+}

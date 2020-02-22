@@ -1,7 +1,13 @@
-
-$color-brand: #C93E3E !default;
-$color-brand-light: #C93E3E !default;
-$color-brand-dark: #346FC2 !default;
+$color-brand: #e93b3d;
+$color-brand-light: #ef6c6e;
+$color-brand-dark: #ba2f31;
+$hd: 2 !default; // 基本单位
+$font-size-xs: 12px * $hd !default; // 非常用字号，用于标签
+$font-size-sm: 14px * $hd !default; // 用于辅助信息
+$font-size-base: 16px * $hd !default; // 常用字号
+$font-size-lg: 18px * $hd !default; // 常规标题
+$font-size-xl: 20px * $hd !default; // 大标题
+$font-size-xxl: 20px * $hd !default; // 用于大号的数字
 
 @import "./style/base/setting.scss";
 @import "~taro-ui/dist/style/index.scss"; // 引入组件样式 - 全局引入
@@ -10,43 +16,50 @@ $color-brand-dark: #346FC2 !default;
 
 // 重写 taro-ui modal 组件
 .at-modal__container {
-    background: $color-bg-element;
-    border-radius: 20px;
-    width: 530px;
-    .at-modal__header {
-        padding: 40px 50px 0px 50px;
+  background: $color-bg-element;
+  border-radius: 20px;
+  width: 530px;
+
+  .at-modal__header {
+    padding: 40px 50px 0px 50px;
+    font-size: 32px;
+    color: $color-text-primary;
+    line-height: 44px;
+    border-bottom: 0;
+    font-weight: bold;
+
+    &::after {
+      display: none;
+    }
+
+    &.no-content {
+      padding-bottom: 40px;
+    }
+  }
+
+  .at-modal__content {
+    padding: 40px 30px;
+    font-size: 28px;
+    color: $color-text-description;
+    text-align: center;
+    line-height: 44px;
+  }
+
+  .at-modal__footer {
+    &::before {
+      border-top: 1PX solid $color-line;
+    }
+
+    .at-modal__action {
+      .default {
         font-size: 32px;
-        color: $color-text-primary;
-        line-height: 44px;
-        border-bottom: 0;
-        font-weight: bold;
-        &::after {
-            display: none;
-        }
-        &.no-content {
-            padding-bottom: 40px;
-        }
+        color: $color-text-description-s;
+      }
+
+      .action {
+        color: $color-brand;
+        font-size: 32px;
+      }
     }
-    .at-modal__content {
-        padding: 40px 30px;
-        font-size: 28px;
-        color: $color-text-description;
-        text-align: center;
-        line-height: 44px;
-    }
-    .at-modal__footer {
-        &::before {
-            border-top: 1PX solid $color-line;
-        }
-        .at-modal__action {
-            .default {
-                font-size: 32px;
-                color: $color-text-description-s;
-            }
-            .action {
-                color: $color-brand-color;
-                font-size: 32px;
-            }
-        }
-    }
+  }
 }

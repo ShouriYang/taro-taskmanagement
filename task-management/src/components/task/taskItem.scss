@@ -1,0 +1,43 @@
+@import "../../style/main.scss";
+
+.task-item {
+  .task-card {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 16px;
+    box-shadow: 10px 10px 10px 10px $color-shadow;
+    .task-title {
+      font-size: 38px;
+      color: $color-brand;
+      margin: 0 20px 20px 20px;
+      display: flex;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: solid 1px $color-line;
+    }
+    .task-detail {
+      font-size: 30px;
+      color: $color-text-description;
+      margin: 20px 0;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      .task-desc{
+        margin-left: 10px;
+        flex: 1;
+      }
+  }
+  .task-footer {
+      padding-top: 15px;
+      margin: 0 20px 0 20px;
+      border-top: solid 1px $color-line;
+      display: flex;
+      align-items: center;
+      .create-time {
+          font-size: 35px;
+          flex: 1;
+      }
+  }
+    }
+
+}

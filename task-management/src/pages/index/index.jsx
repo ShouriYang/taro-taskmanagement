@@ -3,11 +3,8 @@ import { View, Swiper, SwiperItem, Image } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
 import { AtPagination } from 'taro-ui'
 
-import PostItem from '../../components/postItem/postItem'
+import PostItem from '../../components/post/postItem'
 import './index.scss'
-import swipper1 from '../../assets/images/swipper-1.jpg'
-import swipper2 from '../../assets/images/swipper-2.jpg'
-import swipper3 from '../../assets/images/swipper-3.jpg'
 
 @inject('postStore')
 @observer
@@ -16,9 +13,9 @@ class Index extends Component {
 
   }
   componentDidMount() {
-    Taro.switchTab({
-      url:'/pages/task/task'
-    })
+    // Taro.switchTab({
+    //   url:'/pages/task/task'
+    // })
     const { postStore } = this.props
     postStore.getPosts();
   }
@@ -28,6 +25,7 @@ class Index extends Component {
 
   render() {
     const { postStore: { posts } } = this.props
+    console.log(posts)
     return (
       <View className='index'>
         <Swiper
@@ -38,13 +36,13 @@ class Index extends Component {
           indicatorDots
         >
           <SwiperItem>
-            <View className='index-swiper-1'><Image src={swipper1}></Image></View>
+            <View className='index-swiper-1'><Image src='https://tva1.sinaimg.cn/large/0082zybpgy1gc5h631nxnj32dp0u0e81.jpg'></Image></View>
           </SwiperItem>
           <SwiperItem>
-            <View className='index-swiper-2'><Image src={swipper2}></Image></View>
+            <View className='index-swiper-2'><Image src='https://tva1.sinaimg.cn/large/0082zybpgy1gc5h6wkg6xj31e00io4qp.jpg'></Image></View>
           </SwiperItem>
           <SwiperItem>
-            <View className='index-swiper-3'><Image src={swipper3}></Image></View>
+            <View className='index-swiper-3'><Image src='https://tva1.sinaimg.cn/large/0082zybpgy1gc5h7e8kzkj31ab0hahc9.jpg'></Image></View>
           </SwiperItem>
         </Swiper>
         {
