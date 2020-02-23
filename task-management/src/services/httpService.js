@@ -16,6 +16,7 @@ const interceptor =  chain => {
       })
     }
   Taro.addInterceptor(interceptor)
+  const BASE_URL = 'http://localhost:3000'
 //option 包含
 // {
 //     url:string; data:json; header:json
@@ -31,6 +32,7 @@ export default {
       }
     })
   },
+  BASE_URL,
   //option里面主要包含url和data
   get(option) {
     return this.request(option, 'GET')

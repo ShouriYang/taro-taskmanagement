@@ -70,19 +70,11 @@ class Personal extends Component {
         if (res.statusCode === 201) {
           userStore.user = res.data
           console.log('用户存在时store里的user',userStore.user);
-          Taro.atMessage({
-            'message': '欢迎再次回来',
-            'type': "success",
-          })
         } else {
           const data = res.data
           userStore.user.wechat = data.wechat
           userStore.user.score = data.score
           console.log('新插入用户时store里的user',userStore.user);
-          Taro.atMessage({
-            'message': "欢迎加入这个大家庭",
-            'type': "success",
-          })
         }
       })
       await this.setState({

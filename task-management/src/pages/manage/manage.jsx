@@ -41,6 +41,7 @@ class Manage extends Component {
             onClick={this.handleCurrent}
             current={this.state.taskCurrent}
           />
+          
         </AtAccordion>
       </View>
     )

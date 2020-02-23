@@ -7,6 +7,8 @@ class PostItem extends Component {
     state = {  }
     render() { 
         const {post} = this.props
+        console.log('postprops',this.props);
+        console.log('postItem',post);
         return ( 
             <View className='PostItem'>
                 <View className='post-title'>{post.title}</View>

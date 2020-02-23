@@ -1,25 +1,41 @@
 import Taro, { Component } from "@tarojs/taro"
 import { View } from "@tarojs/components"
 import { observer, inject } from "@tarojs/mobx";
-import { AtButton,AtFloatLayout, AtBadge, AtListItem } from "taro-ui"
-import taskItem from "../../components/task/taskItem"
-import taskForm from '../../components/task/taskForm'
+import { AtButton, AtFloatLayout, AtBadge, AtListItem } from "taro-ui"
+import TaskItem from "../../components/task/taskItem"
+import TaskForm from '../../components/task/taskForm'
 import "./task.scss";
+import taskStore from '../../store/task';
 
 @inject("taskStore")
 @observer
 class Task extends Component {
   state = {
-    openForm:false
+    openPublish: false
   };
-  componentDidMount() { }
+  async componentDidMount() {
+    await taskStore.getTasks()
+    console.log('didmont');
+  }
+  componentDidShow = async () => {
+    await taskStore.getTasks()
+    console.log('didshow');
+  }
   config = {
     navigationBarTitleText: "任务大厅"
   };
-  openForm = async()=>{
+  changePublish = async () => {
     await this.setState({
-      openForm:!this.state.openForm
+      openPublish: !this.state.openPublish
     })
+  }
+  onSubmit = async() => {
+    await taskStore.publishTask()
+    await taskStore.getTasks()
+    this.changePublish()
+  }
+  onBack = () => {
+    this.changePublish()
   }
   render() {
     return (
@@ -36,17 +52,30 @@ class Task extends Component {
           <View className='at-col at-col-2'></View>
           <View className='at-col at-col-3 publish'>
             <AtBadge value='new'>
-              <AtButton onClick={this.openForm} style={{ marginRight: '20px' }} type='primary' circle size='small'>
+              <AtButton onClick={this.changePublish} style={{ marginRight: '20px' }} type='primary' circle size='small'>
                 发布任务
             </AtButton>
             </AtBadge>
           </View>
         </View>
         <View className='task-list'>
-          <taskItem></taskItem>
+          {
+            taskStore.tasks.slice().map(task => {
+              return (
+                <TaskItem key={task._id} task={task}>
+                </TaskItem>
+              )
+
+            }
+            )
+          }
         </View>
-        <AtFloatLayout isOpened={this.state.openForm} title='发布任务' onClose={this.changeLayout}>
-          <taskForm></taskForm>
+        <AtFloatLayout isOpened={this.state.openPublish} title='发布任务' onClose={this.changePublish}>
+          <TaskForm></TaskForm>
+          <View className='form-btn'>
+            <AtButton circle type='primary' onClick={this.onSubmit}>发布任务</AtButton>
+            <AtButton circle type='secondary' onClick={this.onBack}>返回大厅</AtButton>
+          </View>
         </AtFloatLayout>
         <View className='task-pagi'></View>
       </View>

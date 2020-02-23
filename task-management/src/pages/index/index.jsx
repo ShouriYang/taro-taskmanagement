@@ -5,8 +5,10 @@ import { AtPagination } from 'taro-ui'
 
 import PostItem from '../../components/post/postItem'
 import './index.scss'
+import userStore from '../../store/user'
 
 @inject('postStore')
+@inject('userStore')
 @observer
 class Index extends Component {
   state = {
@@ -16,6 +18,7 @@ class Index extends Component {
     // Taro.switchTab({
     //   url:'/pages/task/task'
     // })
+    console.log('首页user',userStore.user,userStore.openid,Taro.getStorageSync('openid'))
     const { postStore } = this.props
     postStore.getPosts();
   }
@@ -25,7 +28,6 @@ class Index extends Component {
 
   render() {
     const { postStore: { posts } } = this.props
-    console.log(posts)
     return (
       <View className='index'>
         <Swiper

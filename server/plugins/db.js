@@ -1,11 +1,10 @@
 // 链接数据库
 const mongoose = require('mongoose')
-mongoose.set('useFindAndModify', false)
 DB_URL = 'mongodb://localhost:27017/task-admin';
 
 mongoose.connect(DB_URL, {
     useCreateIndex: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
     useNewUrlParser: true,
 })
 mongoose.set('useFindAndModify', false);

@@ -23,8 +23,8 @@ const userStore = observable({
   },
   async getUser() {
     const res = await service.getUser()
-    console.log('获取到的user信息', res)
     this.user = res.data
+    console.log('store里的user信息', this.user)
   },
   async editInfo(wechat) {
     const info = {}

@@ -9,12 +9,12 @@ class Message extends Component {
 
     }
     config = {
-        navigationBarTitleText: '消息'
+        navigationBarTitleText: '消息列表'
     }
     render() {
         return (
             <View className='message'>
-
+              
             </View>
         )
     }

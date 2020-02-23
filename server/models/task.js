@@ -5,17 +5,18 @@ Schema = mongoose.Schema;
 const Task = mongoose.model("Task", new mongoose.Schema({
   //任务发布时间
   publishDate: {
-    type: String
+    type: String,
+    default: () => moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
   },
   //截止日期
-  deadLine: {
+  deadline: {
     type: String
   },
   //任务标题
   title: {
     type: String
   },
-  requirement: {
+  description: {
     type: String
   },
   destination:{
@@ -26,8 +27,11 @@ const Task = mongoose.model("Task", new mongoose.Schema({
     type: String
   },
   //任务状态
-  taskStatus: {
+  status: {
     type: String
+  },
+  money:{
+    type: Number
   },
   getter: {
     type: String
@@ -40,13 +44,10 @@ const Task = mongoose.model("Task", new mongoose.Schema({
   },
   publisherId: {
     type: String
+  },
+  publisherAvatar:{
+    type: String
   }
-    // requirementFile:{
-  //     type: String
-  // },
-  // submitFile:{
-  //     type: String
-  // },
 }))
 
 module.exports = {

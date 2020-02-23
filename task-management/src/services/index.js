@@ -1,15 +1,10 @@
-import httpServeic from './httpService'
+import httpService from './httpService'
 
 const service = {
     //url,data
-    getTaskList(){
-        return httpServeic.get({
-            url:'http://localhost:3000/post'
-        })
-    },
     getPostList(){
-        return httpServeic.get({
-            url:'http://localhost:3000/post'
+        return httpService.get({
+            url:httpService.BASE_URL+'/post'
         })
     }
 }

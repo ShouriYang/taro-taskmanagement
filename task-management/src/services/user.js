@@ -1,25 +1,25 @@
-import httpServeic from './httpService'
+import httpService from './httpService'
 
 const service = {
   getOpenId(code) {
-    return httpServeic.get({
-      url: `http://localhost:3000/login/${code}`
+    return httpService.get({
+      url: httpService.BASE_URL+`/login/${code}`
     })
   },
   createUser(user) {
-    return httpServeic.post({
-      url: 'http://localhost:3000/user',
+    return httpService.post({
+      url: httpService.BASE_URL+'/user',
       data: user
     })
   },
   getUser(){
-    return httpServeic.get({
-      url: `http://localhost:3000/user`
+    return httpService.get({
+      url: httpService.BASE_URL+'/user'
     })
   },
   editInfo(user) {
-    return httpServeic.put({
-      url: 'http://localhost:3000/user',
+    return httpService.put({
+      url: httpService.BASE_URL+'/user',
       data: user
     })
   }
