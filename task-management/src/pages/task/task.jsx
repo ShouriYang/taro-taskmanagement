@@ -7,6 +7,7 @@ import TaskForm from '../../components/task/taskForm'
 import "./task.scss";
 import taskStore from '../../store/task';
 
+// @inject('userStore')
 @inject("taskStore")
 @observer
 class Task extends Component {
@@ -14,12 +15,12 @@ class Task extends Component {
     openPublish: false
   };
   async componentDidMount() {
-    await taskStore.getTasks()
-    console.log('didmont');
+    // await taskStore.getTasks()
+    // console.log('didmont');
   }
   componentDidShow = async () => {
     await taskStore.getTasks()
-    console.log('didshow');
+    // console.log('didshow');
   }
   config = {
     navigationBarTitleText: "任务大厅"
@@ -60,9 +61,9 @@ class Task extends Component {
         </View>
         <View className='task-list'>
           {
-            taskStore.tasks.slice().map(task => {
+            taskStore.tasks.slice().map((task,index) => {
               return (
-                <TaskItem key={task._id} task={task}>
+                <TaskItem key={task._id} task={task} index={index}>
                 </TaskItem>
               )
 

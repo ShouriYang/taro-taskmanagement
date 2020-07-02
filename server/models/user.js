@@ -15,6 +15,10 @@ const UserSchema = new mongoose.Schema({
     wechat: { type: String },
     //积分
     score: {type: Number},
+    //打分人数
+    count: {type: Number},
+    //总分
+    total: {type:Number}
 });
 
 const User = mongoose.model("User", UserSchema); //定义一个user模型model，

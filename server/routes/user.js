@@ -15,13 +15,16 @@ module.exports = app =>{
         if(isUser){
           res.status(201).send(isUser)
         }else{
+        //该用户不存在
             const user = await User.create({
                 openid: req.headers.token,
                 avatarUrl:req.body.avatarUrl,
                 nickName: req.body.nickName,
                 gender: req.body.gender,
                 wechat: '',
-                score: 0
+                score: 0,
+                count: 0,
+                total: 0,
             });
             console.log('返回的user1',user);
             res.send(user);
@@ -29,23 +32,20 @@ module.exports = app =>{
     })
     //获取用户信息
     router.get('/',async(req,res)=>{
-      console.log('获取到的openid',req.headers.token);
       const user = await User.findOne({
         openid:req.headers.token
       })
-      console.log('返回的用户信息',user);
       res.send(user);
     })
     //修改用户联系方式
     router.put('/',async(req,res)=>{
-      console.log(req.body)
       const user = await User.update({openid:req.body.openid},{
         wechat:req.body.wechat
       })
-      console.log('返回的user2',user);
       res.send(user)
     })
     app.use('/user', router);
+    //用户授权后获取唯一的openid
     app.get('/login/:id',(req,res)=>{
         const appid = "wx7f2fe1f0426cc358"  //开发者的appid
         const appsecret = "0f52aee2035af594a0809e0e8d54a7f0"   //开发者的appsecret 登入小程序公共平台内查看
@@ -61,4 +61,10 @@ module.exports = app =>{
             }
         });
     })
+    //错误统一处理
+    app.use(async (err, req, res, next) => {
+      res.status(err.statusCode || 500).send({
+        message: err.message
+      });
+    });
 }

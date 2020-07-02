@@ -6,17 +6,18 @@
     border-radius: 16px;
     box-shadow: 0 10px 10px $color-shadow;
     .post-title {
-        font-size: 48px;
+        font-size: 43px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         color: $color-brand;
     }
     .post-detail {
-        font-size: 28px;
+        font-size: 30px;
         color: $color-text-description;
         margin: 20px 0;
         padding: 0 20px;
     }
-    .post-description {
-        font-size: 28px;
+    .post-content {
+        font-size: 30px;
         @include mul-text-truncate(3);
         margin: 10px;
     }
@@ -25,11 +26,15 @@
         padding: 20px 20px 0 20px;
         border-top: solid 1px $color-line;
         display: flex;
+        align-items: center;
         .post-date {
+            font-size: 33px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             flex: 1;
         }
-        .post-score {
-            color: $color-text-activity;
+        .post-star{
+          display: flex;
+          align-items: center;
         }
     }
 }

@@ -3,17 +3,22 @@ const mongoose = require("../plugins/db");
 //新建用户所有信息数据库字段
 const MessageSchema = new mongoose.Schema({
   date: { type: String },
+  //任务标题
+  taskTitle:{type:String},
+  //任务描述
+  taskDescrip:{type:String},
   //消息内容
-  info: { type: String, unique: true }, //定义类型，这样写还可以加别的参数
+  info: { type: String}, //定义类型，这样写还可以加别的参数
   //消息状态：已读/未读
   status: { type: String },
-  //消息产生者：任务领取人/发布人
-  nickName: { type: String },
-  //产生者id
-  id: { type: String },
-  //产生者头像
-  avatarUrl: { type: String }
-
+  //消息的拥有者
+  owner: { type: String },
+  //需要展示的个人信息
+  user: { type: String },
+  userId: { type: String },
+  userAvatar: { type: String },
+  userScore: { type: String },
+  userWechat: { type: String }
 });
 
 const Message = mongoose.model("Message", MessageSchema); //定义一个user模型model，

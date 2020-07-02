@@ -24,10 +24,10 @@ class TaskItem extends Component {
         </View>
         <AtTimeline style={{ marginLeft: '20px' }}
           items={[
-            { title: `${task.destination}`, icon: 'map-pin' },
-            { title: `${task.deadline}`, icon: 'bell', color: 'green' },
-            { title: `${task.status}`, icon: 'loading-2', color: 'red' },
-            { title: `${task.money}`, icon: 'money', color: 'yellow' }
+            { title: `目的地:${task.destination}`, icon: 'map-pin' },
+            { title: `截止时间:${task.deadline}`, icon: 'bell', color: 'green' },
+            { title: `任务状态:${task.status}`, icon: 'loading-2', color: 'red' },
+            { title: `任务赏金:${task.money}`, icon: 'money', color: 'yellow' }
           ]}
         >
         </AtTimeline>

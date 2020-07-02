@@ -12,6 +12,7 @@ const userStore = observable({
   code: 0,
   async getOpenId() {
     await service.getOpenId(this.code).then((res) => {
+      console.log('sessionkey',res.data);
       this.openid = res.data.openid;
     })
     return this.openid

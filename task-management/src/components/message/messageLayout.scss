@@ -1,0 +1,18 @@
+@import '../../style/main.scss';
+
+.message-layout{
+  .layout-header{
+    display: flex;
+    padding: 25px;
+    align-items: center;
+    justify-content: center;
+    .layout-text{
+      margin-left: 25px;
+    }
+  }
+  .layout-timeline{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}

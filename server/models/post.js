@@ -15,17 +15,17 @@ const PostSchema = new mongoose.Schema({
     createTime: {
         type: String
     },
-    //发帖人
-    publisher: {
+    //投稿人
+    poster: {
         type: String
     },
     //获得点赞数
     star: {
-        type: String
+        type: Number
     }
 });
 
-const User = mongoose.model("User", UserSchema); //定义一个user模型model，
+const Post = mongoose.model("Post", PostSchema); //定义一个user模型model，
 module.exports = {
-    User
+    Post
 }; //导出一个对象，可以增加模型

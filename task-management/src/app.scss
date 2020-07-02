@@ -2,6 +2,7 @@ $color-brand: #e93b3d;
 $color-brand-light: #ef6c6e;
 $color-brand-dark: #ba2f31;
 $hd: 2 !default; // 基本单位
+$at-timeline-dot-size: 32px !default;
 $font-size-xs: 12px * $hd !default; // 非常用字号，用于标签
 $font-size-sm: 14px * $hd !default; // 用于辅助信息
 $font-size-base: 16px * $hd !default; // 常用字号

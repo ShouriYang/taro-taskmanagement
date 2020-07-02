@@ -4,6 +4,7 @@ import service from '../services/task';
 const taskStore = observable({
     tasks:[],
     taskForm:{},
+    score:5,
     async getTasks(){
       await service.getTaskList().then(res=>{
         this.tasks = []
@@ -15,11 +16,13 @@ const taskStore = observable({
         console.log(res)
       })
     },
+    //获取任务发布人的评分
+    getStore(id){
+      return service.getScore(id)
+    },
     //领取/确认/完成任务
     getTask(id){
-      service.getTask(id).then(res=>{
-        console.log('领取任务之后返回的数据',res);
-      })
+      return service.getTask(id)
     }
 })
 

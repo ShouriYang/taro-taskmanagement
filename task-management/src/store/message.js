@@ -3,9 +3,16 @@ import service from '../services/message'
 
 const messageStore = observable({
     notRead:3,
+    messages:[],
     getMessages(){
       service.getMessages().then(res=>{
-        console.log('获取消息列表',res);
+        this.messages = []
+        this.messages.push(...res.data)
+      })
+    },
+    deleteMessage(id){
+      service.deleteMessage(id).then(res=>{
+        return res
       })
     },
     postMessage(id){

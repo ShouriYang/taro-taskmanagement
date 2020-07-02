@@ -6,6 +6,7 @@ import taskStore from './store/task'
 import userStore from './store/user'
 import postStore from './store/post'
 import messageStore from './store/message'
+import manageStore from './store/manage'
 
 
 import './app.scss'
@@ -17,16 +18,12 @@ import './app.scss'
 // }
 
 const store = {
-  postStore,taskStore,messageStore,userStore
+  postStore,taskStore,messageStore,userStore,manageStore
 }
 
 class App extends Component {
 
   componentDidMount () {
-    Taro.setTabBarBadge({
-      index:2,
-      text:`${messageStore.notRead}`
-    })
   }
 
   config = {

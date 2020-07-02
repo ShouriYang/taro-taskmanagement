@@ -16,15 +16,6 @@ class Personal extends Component {
   }
   async componentDidMount() {
     try {
-      //获取登录凭证（code）
-      const loginRes = await Taro.login({})
-      userStore.code = loginRes.code
-      //通过code请求获取openid
-      userStore.getOpenId().then(res => {
-        console.log('请求获取openid');
-        Taro.setStorageSync('openid', res)
-      })
-
       //判断小程序是否请求过权限
       const res = await Taro.getSetting({})
       if (!res.authSetting['scope.userInfo']) {
@@ -32,10 +23,18 @@ class Personal extends Component {
           needAuth: true
         })
       }
+      //获取登录凭证（code）
+      const loginRes = await Taro.login({})
+      userStore.code = loginRes.code
+      //通过code请求获取openid
+      userStore.getOpenId().then(result => {
+        // console.log('请求获取openid');
+        Taro.setStorageSync('openid', result)
+      })
       //获取用户信息
       if (res.authSetting['scope.userInfo'] === true) {
         // const user = await Taro.getUserInfo({})
-        console.log('每次登录获取openid',Taro.getStorageSync('openid'))
+        console.log('每次登录获取openid', Taro.getStorageSync('openid'))
         await userStore.getUser()
         await this.setState({
           openModal: false,
@@ -49,6 +48,7 @@ class Personal extends Component {
   config = {
     navigationBarTitleText: '个人中心'
   }
+  //打开授权确认modal框
   handleOpenModal = async () => {
     await this.setState({
       openModal: true
@@ -66,15 +66,15 @@ class Personal extends Component {
       userStore.user = e.detail.userInfo
       //第一次授权登录的时候创建用户
       await userStore.createUser().then(res => {
-        console.log('创建用户返回的信息',res);
+        console.log('创建用户返回的信息', res);
         if (res.statusCode === 201) {
           userStore.user = res.data
-          console.log('用户存在时store里的user',userStore.user);
+          console.log('用户存在时store里的user', userStore.user);
         } else {
           const data = res.data
           userStore.user.wechat = data.wechat
           userStore.user.score = data.score
-          console.log('新插入用户时store里的user',userStore.user);
+          console.log('新插入用户时store里的user', userStore.user);
         }
       })
       await this.setState({
